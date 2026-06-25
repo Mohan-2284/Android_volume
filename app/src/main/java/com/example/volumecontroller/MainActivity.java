@@ -8,7 +8,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -41,19 +40,12 @@ public class MainActivity extends AppCompatActivity {
         audioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
         prefs = PreferenceManager.getDefaultSharedPreferences(this);
 
-        // Request permissions
         requestPermissions();
 
-        // Add phone number to whitelist
         addButton.setOnClickListener(v -> addPhoneNumber());
-
-        // Clear whitelist
         clearButton.setOnClickListener(v -> clearWhitelist());
-
-        // Clear logs
         clearLogsButton.setOnClickListener(v -> clearLogs());
 
-        // Display current whitelist
         displayWhitelist();
         updateVolumeStatus();
     }
